@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Available Rooms</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'senior_des/style.css'  %}" type="text/css">
+    <head>
+    <body>
+    <!--
+        <div class="container-fluid">
+
+            <div class="row">
+            <div class="span6" style="float: none; margin: 0 auto;">
+            <h1>Welcome</h1>
+            Welcome! The following shows the available rooms.
+            </div>
+            </div>
+            
+        </div>
+    -->
+        <center> <h1>Welcome</h1>
+        Welcome! The following shows the available rooms.  
+
+        <div class="container">
+            <br> <br />
+
+
+        <div class="col-md-4">
+            <a href="/senior_des/home_page"><h2> Go to Our HomePage </h2></a>
+        </div>
+
+
+<!--            <form action="localhost:8000/">
+                <input type="Home Page" vale="Go to Google" />
+            </form>
+
+            <button class="btn btn-primary" type="button" name="button">
+                About Our Project Page
+            </button>
+-->
+            <br />
+            <br />
+            
+            {% for room in rooms %}
+                 <div style="width:500px;height:100px;border:1px solid #000;"> 
+                    <center> {{ room }} </center>
+                </div>
+            {% endfor %}
+
+
+            <br /> 
+        </div>
+    </body>
+</html>
