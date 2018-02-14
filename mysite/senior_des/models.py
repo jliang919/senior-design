@@ -21,3 +21,9 @@ class Rooms(models.Model):
             return "occupied"
         else:
             return "not occupied"
+
+    def __eq__(self,obj):
+        if self.room_number == obj.room_number:
+            return True
+        else:
+            return False
