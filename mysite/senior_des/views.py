@@ -18,20 +18,20 @@ def room(request):
             each_info[2] = True
         else:
             print("WTF just happened not right")
-        x, isThere = Rooms.objects.get_or_create(Rooms (room_name=each_info[0], room_number=each_info[1], is_occupied=bool(each_info[2])))
-        # print (type(Rooms.objects.all()))
-        x.save()
+        x = Rooms (room_name=each_info[0], room_number=each_info[1], is_occupied=bool(each_info[2]))
 
-        # r = Rooms.objects.all().filter(room_name=each_info[0])
-        # if(len(r) == 0):
-        #     x.save()
-        #     print("empty")
-        # else:
-        #     o = r.first()
-        #     print("here is the object: " + o)
-        #     x.save()
-        # #print(r)
-
+        #check to see if room exists or create a new room
+        r = Rooms.objects.all().filter(room_name=each_info[0]).filter(room_number=each_info[1])
+        #if no rooms then create new one
+        if(len(r) == 0):
+            x.save()
+            print("Room doesn't exist")
+        #if room does exist then update the state
+        else:
+            o = r.first()
+            print("here is the room being updated: ", o)
+            o.is_occupied = x.is_occupied
+            o.save()
 
     rooms = Rooms.objects.all()
 
