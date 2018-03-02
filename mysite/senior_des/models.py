@@ -10,7 +10,7 @@ class Rooms(models.Model):
     #prints out the text that wants to be sent
     def __str__(self):
         if self.is_occupied:
-            return self.room_name + ", room number " + str(self.room_number) + " is occupied "
+            return self.room_name + ", room number " + str(self.room_number) + " is occupied "  
         else:
             return self.room_name + ", room number " + str(self.room_number) + " is not occupied "
 
@@ -21,3 +21,9 @@ class Rooms(models.Model):
             return "occupied"
         else:
             return "not occupied"
+
+    def room_arr(self):
+        if self.is_occupied:
+            return True
+        else:
+            return False
